@@ -1,0 +1,26 @@
+<%= form_with(model: todo, local: true, html: { class: "needs-validation", novalidate: true }) do |form| %>
+  <% if todo.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">エラーが <%= pluralize(todo.errors.count, "件") %> あります:</h4>
+      <ul>
+        <% todo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, "タイトル", class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 form-check">
+    <%= form.check_box :is_done, class: "form-check-input" %>
+    <%= form.label :is_done, "完了状況", class: "form-check-label" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
