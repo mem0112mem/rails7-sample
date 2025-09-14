@@ -1,0 +1,14 @@
+<h1>Todo Details</h1>
+
+<p>
+    <strong>Title:</strong>
+    <%= @todo.title %>
+</p>
+
+<p>
+    <strong>Description:</strong>
+    <%= @todo.is_done ? '完了' : '未完了'%>
+</p>
+
+<%= link_to 'Edit', edit_todo_path(@todo) %> |
+<%= link_to 'Back', todos_path %>
