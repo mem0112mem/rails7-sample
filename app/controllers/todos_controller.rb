@@ -10,11 +10,7 @@ class TodosController < ApplicationController
   end
 
   def create
-    # p "craete===="
     @todo = Todo.new(todo_params)
-    # p "todo_params===="
-    # p todo_params
-
     if @todo.save
       redirect_to todos_path, notice: 'タスクが作成されました。'
     else
